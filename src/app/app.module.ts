@@ -20,6 +20,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { AddressComponent } from './address/address.component';
+import { UserComponent } from './auth/user/user.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { AddressComponent } from './address/address.component';
     PaymentComponent,
     ProductAddComponent,
     AddressComponent,
+    UserComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
