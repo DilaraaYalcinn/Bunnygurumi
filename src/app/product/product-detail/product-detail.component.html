@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1"><img src="./assets/images/yellowbunny.jpg" /></div>
+                        <div class="tab-pane" id="pic-2"><img src="./assets/images/yellowbunny.jpg" /></div>
+                        <div class="tab-pane" id="pic-3"><img src="./assets/images/yellowbunny.jpg" /></div>
+                        <div class="tab-pane" id="pic-4"><img src="./assets/images/yellowbunny.jpg" /></div>
+                        <div class="tab-pane" id="pic-5"><img src="./assets/images/yellowbunny.jpg" /></div>
+                    </div>
+
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title">{{selectedProduct?.Title}}</h3>
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <span class="review-no">41 reviews</span>
+                    </div>
+                    <p class="product-description">{{selectedProduct?.Explanation}}. Handmade products are produced with organic and anti allergenic cottons.
+                        It's softness is best for your child. You may select your preferred color. <br>Delivery changes between 10-15 days.
+                    </p>
+                    <h4 class="price">current price: <span>{{selectedProduct?.Price}}TL</span></h4>
+                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                    <h5 class="sizes">Height:
+                        <span class="size" data-toggle="tooltip" title="small">30cm</span>
+                        <span class="size" data-toggle="tooltip" title="medium">45cm</span>
+                        <span class="size" data-toggle="tooltip" title="large">60cm</span>
+                    </h5>
+                    <h5 class="colors">colors:
+                        <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                        <span class="color green"></span>
+                        <span class="color blue"></span>
+                    </h5>
+                    <div class="action">
+                        <button class="add-to-cart btn btn-default" type="button" (click)="addToCart()">add to cart</button>
+                        <button style="margin-left: 10px;" class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

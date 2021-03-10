@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="col-md-6">
+        <form #form="ngForm" autocomplete="off">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                    <input class="form-control" placeholder="Card Owner Name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="far fa-credit-card"></i>
+                        </div>
+                    </div>
+                    <input class="form-control" placeholder="16 Digit Card Number" required
+                        maxlength="16" minlength="16">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-7">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                        <input class="form-control" placeholder="MM/YY" required maxlength="5"
+                            minlength="5">
+                    </div>
+                </div>
+                <div class="form-group col-md-5">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text bg-white">
+                                <i class="fas fa-key"></i>
+                            </div>
+                        </div>
+                        <input type="password" class="form-control" placeholder="CVV" required maxlength="3"
+                            minlength="3">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" type="submit"><i class="fas fa-database"></i>
+                    Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

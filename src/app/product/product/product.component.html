@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="jumbotron py-3">
+        <h4 class="display-6 text-center">Add Product</h4>
+    </div>
+    <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+        <input type="hidden" name="PId" [value]="service.formData.PId" />
+        <div class="mb-3 form-group">
+            <input type="text" name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" class="form-control"
+                id="Title" placeholder="Product Title" required>
+        </div>
+        <div class="mb-3 form-group">
+            <textarea name="Explanation" name="Explanation" #Explanation="ngModel"
+                [(ngModel)]="service.formData.Explanation" class="form-control" placeholder="Product Explanation"
+                id="Explanation" style="height: 100px"></textarea>
+        </div>
+        <div class="mb-3 form-group">
+            <label for="Price">Price</label>
+            <input type="number" name="Price" #Price="ngModel" [(ngModel)]="service.formData.Price" class="form-control"
+                id="Price" placeholder="Product Price" required>
+        </div>
+        <div class="mb-3 form-group">
+            <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+            <img *ngIf="imgPath" [src]="createImgPath(imgPath)" style="height: 400px; width: 400px">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+        </div>
+    </form>
+</div>

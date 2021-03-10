@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col col-sm-6" *ngFor="let product of service.list">
+            <div class="card">
+                <a [routerLink]="['/products/', product.PId]">
+                <img src="./assets/images/yellowbunny.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.Title}}</h5>
+                    <p class="card-text">{{product.Explanation}}</p>
+                </div>
+            </a>
+            </div>
+        </div>
+        <div *ngIf="routeToShop" class="row row-cols-1 row-cols-md-3 g-4" id="shopNow">
+            <div class="col col-sm-6" >
+                <div class="card">
+                    <img src="./assets/images/cart.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> <a routerLink="/product-shop">Shop Now!</a></h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

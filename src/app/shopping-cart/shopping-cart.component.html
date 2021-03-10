@@ -1,0 +1,34 @@
+<div class="container">
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>         
+                <th></th>
+                <th>Title</th>
+                <th>Price</th>                
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+        </thead> <tfoot></tfoot>
+        <tr *ngFor="let product of productList" id="cssTable">
+            <td><img  src="./assets/images/yellowbunny.jpg " class="card-img-top" alt="..." style="height: 70px; width: 100px;"></td>
+            <td>{{product.name}}</td>
+            <td >{{product.price}} TL</td>            
+            <td ><button class="btn btn-sm btn-outline-secondary" style="margin-right:5px;" (click)="onMinus(product.id)"><i class="fas fa-minus"></i></button>
+                 {{product.quantity}} 
+                <button class="btn btn-sm btn-outline-secondary"  style="margin-left:5px;" (click)="onPlus(product.id)"><i class="fas fa-plus"></i></button></td>
+            <td>
+              <button class="btn btn-sm btn-outline-danger" (click)="onDelete(product.id)"><i class="far fa-trash-alt"></i></button>
+          </td>
+        </tr>
+        <tfoot class="thead-light">
+            <tr>         
+                <th></th>
+                <th></th>
+                <th>Total Price:</th>
+                <th>{{totalPrice}} TL</th>               
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+    

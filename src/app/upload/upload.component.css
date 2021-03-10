@@ -1,0 +1,10 @@
+.upload{
+    font-weight:bold;
+    color:palevioletred;
+    margin-left: 15px;
+    line-height: 36px;
+}
+.btn{
+    background-color:#E3A7A8; 
+    border-color: #E3A7A8;
+}
