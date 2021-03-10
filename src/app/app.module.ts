@@ -18,6 +18,7 @@ import { ProductShopComponent } from './product/product-shop/product-shop.compon
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ProductAddComponent } from './product/product-add/product-add.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { PaymentComponent } from './payment/payment.component';
     ProductDetailComponent,
     ShoppingCartComponent,
     PaymentComponent,
+    ProductAddComponent,
   ],
   imports: [
     BrowserModule,

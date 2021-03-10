@@ -6,17 +6,16 @@
             <th>Title</th>
             <th>Explanation</th>
             <th>Price</th>
-            <th><button type="button" class="btn btn-info" style="width: 80px;float: right;background-color: #31376C;
-                border-color: #31376C;"><i class="far fa-plus-square"></i></button></th>
+            <th><button type="button" (click)="resetForm()" routerLink="/product" class="btn btn-info" id="add" ><i class="far fa-plus-square"></i></button></th>
         </tr>
     </thead>
-    <tr (click)="populateForm(product)" *ngFor="let product of service.list" id="cssTable">
+    <tr *ngFor="let product of service.list" id="cssTable">
         <td><img  src="./assets/images/yellowbunny.jpg " class="card-img-top" alt="..." style="height: 70px; width: 100px;"></td>
         <td>{{product.Title}}</td>
         <td >{{product.Explanation}}</td>
         <td >{{product.Price}} TL</td>
         <td align="right">           
-          <button class="btn btn-sm btn-outline-danger" style="margin-right:15px ;" (click)="onEdit(product.id)"><i class="far fa-edit"></i></button>
+          <button (click)="populateForm(product)" class="btn btn-sm btn-outline-danger" routerLink="/product" style="margin-right:15px;" id="edit"><i class="far fa-edit"></i></button>
           <button class="btn btn-sm btn-outline-danger" (click)="onDelete(product.PId)"><i class="far fa-trash-alt"></i></button>
       </td>
     </tr>

@@ -2,23 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
-
+declare var $ : any;
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-product-add',
+  templateUrl: './product-add.component.html',
+  styles:[
+    `.modal{background: rgba(0,0,0, .5);`
+  ]
 })
-export class ProductComponent implements OnInit {
+export class ProductAddComponent implements OnInit {
   public response: {dbPath: ''};
   public imgPath: any;
-  public HeadTitle:string='';
+  display = "none";
   constructor(public service: ProductService) { }
-
-  ngOnInit(): void {
-    if (this.service.formData.PId == 0)
-    this.HeadTitle= "Add Product"
-    else
-    this.HeadTitle= "Edit Product"
+  ngOnInit() {
+   }
+openModal() {
+    this.display = "block";
+  }
+  onCloseHandled() {
+    this.display = "none";
   }
   resetForm(form: NgForm) {
     form.form.reset();

@@ -33,4 +33,9 @@
 }
 .btn{
   background-color: #31376C;
-  }
+}
+.center {
+  margin: auto;
+  width: 55%;
+  padding: 10px;
+}

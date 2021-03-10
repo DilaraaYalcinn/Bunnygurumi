@@ -2,3 +2,13 @@
 {
     vertical-align: middle;
 }
+#add{
+    width: 80px;
+    float: right;
+    background-color: #31376C;
+    border-color: #31376C;
+}
+#edit:hover{
+    background-color: #31376C;
+    border-color: #31376C;
+}

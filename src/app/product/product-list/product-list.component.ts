@@ -17,7 +17,9 @@ export class ProductListComponent implements OnInit {
   populateForm(selectedRecord: Product) {
     this.service.formData = Object.assign({}, selectedRecord);
   }
-
+  resetForm() {
+    this.service.formData = new Product();
+  }
   onDelete(id: number) {
     if (confirm('Are you sure to delete this record ?')) {
       this.service.deleteProduct(id)
