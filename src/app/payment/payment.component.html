@@ -1,5 +1,8 @@
-<div class="container">
-    <div class="col-md-6">
+<div class="container center">
+    <h1>Payment</h1>
+    <p>Please enter your payment details.</p>
+    <hr />
+    <div class="form">
         <form #form="ngForm" autocomplete="off">
             <div class="form-group">
                 <div class="input-group">
@@ -47,9 +50,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <button class="btn btn-info btn-lg btn-block" type="submit"><i class="fas fa-database"></i>
-                    Submit</button>
+                <div class="row"  style="margin-top: 55px;">
+                    <div class="col-md-9">
+                        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button routerLink="/shopping-cart" class="btn btn-info btn-lg btn-block">CANCEL</button>
+                    </div>
+                </div>
             </div>
         </form>
-    </div>
 </div>

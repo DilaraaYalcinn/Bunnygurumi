@@ -6,3 +6,26 @@ background-color: #31376C;
     
     border-color: #E3A7A8;
     }
+.center{
+    width: 45%;
+}
+.container {
+    max-width: 40rem;
+    margin: 0 auto;
+    height: 100vh;
+  }
+  
+  .input-group{
+      height: 55px;
+  }
+  .form-control{
+    height: 55px;
+  }
+  hr {
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-light-gray);
+    border: 0;
+    margin: 2rem 0;
+  }
+ 
