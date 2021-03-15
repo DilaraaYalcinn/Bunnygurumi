@@ -16,7 +16,7 @@
                         <br>
                     </div>
                 </a>
-                <div class="card-footer bg-transparent border-success">
+                <div class="card-footer bg-transparent" style="border-top:none;">
                     <h5 *ngIf="product?.IsSold"> <span style="float:left;" class="badge badge-dark">
                             Tükendi</span>
                     </h5>
@@ -30,7 +30,7 @@
         </div>
         <div *ngIf="routeToShop" class="row row-cols-1 row-cols-md-3 g-4" id="shopNow">
             <div class="col col-sm-6">
-                <div class="card">
+                <div class="card h-100">
                     <img src="./assets/images/cart.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"> <a routerLink="/product-shop">Shop Now!</a></h5>

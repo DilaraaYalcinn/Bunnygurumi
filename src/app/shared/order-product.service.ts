@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { OrderProduct } from './order-product.model';
 import { Product } from './product.model';
 
 @Injectable({
@@ -6,13 +8,10 @@ import { Product } from './product.model';
 })
 export class OrderProductService {
 
-  constructor() { }
+  readonly rootURL = "http://localhost:2805/api";
+  constructor(private http: HttpClient) { }
 
- /* postOrder(product: Product) {
-    formData.CustomerId = this.userService.formData[0]?.UId;
-    formData.IsPaymentSuccessful= true;
-    formData.Status= 1;
-    formData.Address= "my static Adress";
-    return this.http.post(this.rootURL + '/Order', formData);
-  } */
+  postOrderProduct(product: OrderProduct) {
+    return this.http.post(this.rootURL + '/Order_Product', product);
+  }
 }
