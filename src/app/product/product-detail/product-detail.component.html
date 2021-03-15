@@ -39,9 +39,10 @@
                         <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
                         <span class="color green"></span>
                         <span class="color blue"></span>
-                    </h5>
+                    </h5>              
+                    <h4 *ngIf="selectedProduct?.IsSold"> <span style="float: left; margin: auto;" class="badge badge-warning">Tükendi</span></h4> 
                     <div class="action">
-                        <button class="add-to-cart btn btn-default" type="button" (click)="addToCart()">add to cart</button>
+                        <button [disabled] = "selectedProduct?.IsSold" class="add-to-cart btn btn-default" type="button" (click)="addToCart()">add to cart</button>
                         <button style="margin-left: 10px;" class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
                     </div>
                 </div>

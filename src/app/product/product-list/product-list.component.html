@@ -9,8 +9,8 @@
             <th><button type="button" (click)="resetForm()" routerLink="/product" class="btn btn-info" id="add" ><i class="far fa-plus-square"></i></button></th>
         </tr>
     </thead>
-    <tr *ngFor="let product of service.list" id="cssTable">
-        <td><img  src="./assets/images/yellowbunny.jpg " class="card-img-top" alt="..." style="height: 70px; width: 100px;"></td>
+    <tr *ngFor="let product of service.sellerList" id="cssTable">
+        <td><img src="./assets/images/yellowbunny.jpg " class="card-img-top" alt="..." style="height: 70px; width: 100px;"></td>
         <td>{{product.Title}}</td>
         <td >{{product.Explanation}}</td>
         <td >{{product.Price}} TL</td>
@@ -20,4 +20,6 @@
       </td>
     </tr>
 </table>
+
+<h5 *ngIf ="!isListExist" style="text-align: center;">You do not have any products yet! Click Add button to start.</h5>
 </div>

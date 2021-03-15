@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddressComponent implements OnInit {
 
+  public adress: string = '';
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onClick(form) {
+    // console.log("form ",form)
+    // var inputValue = (<HTMLInputElement>document.getElementById(address)).value;
   }
 
 }

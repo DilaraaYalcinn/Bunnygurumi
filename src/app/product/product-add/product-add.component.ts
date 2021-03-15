@@ -28,7 +28,9 @@ openModal() {
     this.service.formData = new Product();
   }
   
-  onSubmit(form: NgForm) {
+  onSubmit(form: NgForm) {  
+    // if(this.service.userService?.formData[0]?.UId)
+    //   form.form.s= this.service.userService?.formData[0]?.UId;
     if (this.service.formData.PId == 0)
       this.insertRecord(form);
     else

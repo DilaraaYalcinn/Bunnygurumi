@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
   }
   
   onSubmit(form: NgForm) {
-    if (this.service.formData.PId == 0)
+    if (this.service.formData?.PId == 0)
       this.insertRecord(form);
     else
       this.updateRecord(form);

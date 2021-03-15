@@ -8,3 +8,12 @@ a{
         text-decoration: underline;
   
 }
+.addCart{
+    border-width: 0px;
+    background-color: white !important;
+}
+.custom-switch{
+    margin-bottom: 15px;
+}
+
+    

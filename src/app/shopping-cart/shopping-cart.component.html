@@ -1,39 +1,54 @@
-<div class="container">
+<div *ngIf="!IsContinue" class="container">
     <table class="table table-hover">
         <thead class="thead-light">
-            <tr>         
+            <tr>
                 <th></th>
                 <th>Title</th>
-                <th>Price</th>                
+                <th>Price</th>
                 <th>Quantity</th>
                 <th></th>
             </tr>
-        </thead> <tfoot></tfoot>
+        </thead>
+        <tfoot></tfoot>
         <tr *ngFor="let product of productList" id="cssTable">
-            <td><img  src="./assets/images/yellowbunny.jpg " class="card-img-top" alt="..." style="height: 70px; width: 100px;"></td>
+            <td><img src="./assets/images/yellowbunny.jpg " class="card-img-top" alt="..."
+                    style="height: 70px; width: 100px;"></td>
             <td>{{product.name}}</td>
-            <td >{{product.price}} TL</td>            
-            <td ><button class="btn btn-sm btn-outline-secondary" style="margin-right:5px;" (click)="onMinus(product.id)"><i class="fas fa-minus"></i></button>
-                 {{product.quantity}} 
-                <button class="btn btn-sm btn-outline-secondary"  style="margin-left:5px;" (click)="onPlus(product.id)"><i class="fas fa-plus"></i></button></td>
+            <td>{{product.price}} TL</td>
+            <td><button class="btn btn-sm btn-outline-secondary" style="margin-right:5px;"
+                    (click)="onMinus(product.id)"><i class="fas fa-minus"></i></button>
+                {{product.quantity}}
+                <button class="btn btn-sm btn-outline-secondary" style="margin-left:5px;"
+                    (click)="onPlus(product.id)"><i class="fas fa-plus"></i></button>
+            </td>
             <td>
-              <button class="btn btn-sm btn-outline-danger" (click)="onDelete(product.id)"><i class="far fa-trash-alt"></i></button>
-          </td>
+                <button class="btn btn-sm btn-outline-danger" (click)="onDelete(product.id)"><i
+                        class="far fa-trash-alt"></i></button>
+            </td>
         </tr>
         <tfoot class="thead-light">
-            <tr>         
+            <tr>
                 <th></th>
                 <th></th>
                 <th>Total Price:</th>
-                <th>{{totalPrice}} TL</th>               
+                <th>{{totalPrice}} TL</th>
                 <th></th>
             </tr>
-        </tfoot>       
+        </tfoot>
     </table>
     <div class="row">
         <div class="col-lg-12">
-            <button routerLink="/address" class="btn btn-info float-right">CONTINUE</button>
+            <button (click)="onContinue(product)" routerLink="/payment" class="btn btn-info float-right">CONTINUE</button>
         </div>
     </div>
 </div>
-    
+<div *ngIf="IsContinue" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <app-address></app-address>
+        </div>
+        <div class="col-md-8">
+            <app-payment></app-payment>
+        </div>
+    </div>
+</div>

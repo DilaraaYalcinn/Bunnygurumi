@@ -1,20 +1,35 @@
 <div class="container">
+    <div class="custom-control custom-switch">
+        <input (click)="doNotShowCheck()" type="checkbox" class="custom-control-input" id="customSwitch1">
+        <label *ngIf="!doNotShow" class="custom-control-label" for="customSwitch1"><b>Tükenenleri Gösterme</b></label>
+        <label *ngIf="doNotShow" class="custom-control-label" for="customSwitch1"><b>Tükenenleri Göster</b></label>
+    </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col col-sm-6" *ngFor="let product of service.list">
-            <div class="card">
+        <div class="col col-sm-6" *ngFor="let product of (routeToShop ? service.list.slice(0, 5) : service.list)">
+            <div class="card h-100">
                 <a [routerLink]="['/products/', product.PId]">
-                <img src="./assets/images/yellowbunny.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{product.Title}}</h5>
-                    <p class="card-text">{{product.Explanation}}</p>
-                    <h5> <span style="float: right;" class="badge badge-secondary">{{product.Price}} TL</span></h5>  
-                    <br>
+                    <img src="./assets/images/yellowbunny.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.Title}}</h5>
+                        <p class="card-text">{{product.Explanation}}</p>
+                        <h5> <span style="float: right;" class="badge badge-secondary">{{product.Price}} TL</span></h5>
+                        <br>
+                    </div>
+                </a>
+                <div class="card-footer bg-transparent border-success">
+                    <h5 *ngIf="product?.IsSold"> <span style="float:left;" class="badge badge-dark">
+                            Tükendi</span>
+                    </h5>
+                    <button (click)="onAddtoCartClick(product)" type="button" class="addCart">
+                        <h5 *ngIf="!product?.IsSold"> <span style="float: left; margin-bottom: 8px;"
+                                class="badge badge-warning"><i class="fas fa-plus"></i> Sepete Ekle</span></h5>
+                    </button>
                 </div>
-            </a>
+
             </div>
         </div>
         <div *ngIf="routeToShop" class="row row-cols-1 row-cols-md-3 g-4" id="shopNow">
-            <div class="col col-sm-6" >
+            <div class="col col-sm-6">
                 <div class="card">
                     <img src="./assets/images/cart.png" class="card-img-top" alt="...">
                     <div class="card-body">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,11 +9,17 @@ import { ProductService } from 'src/app/shared/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-
-  constructor(public service: ProductService) { }
+  isListExist: boolean = true;
+  constructor(public service: ProductService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.service.refreshList();
+    console.log("UID:", this.userService.formData[0]?.UId)
+    if (this.userService.formData[0]?.UId) {
+        this.service.refreshSellerList();
+    }
+    else {
+      this.isListExist = false;
+    }
   }
   populateForm(selectedRecord: Product) {
     this.service.formData = Object.assign({}, selectedRecord);
@@ -26,7 +33,7 @@ export class ProductListComponent implements OnInit {
         .subscribe(response => {
           this.service.refreshList();
         },
-        error => { console.log(error); })
+          error => { console.log(error); })
     }
   }
 

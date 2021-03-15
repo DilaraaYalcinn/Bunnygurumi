@@ -1,19 +1,20 @@
-<div class= "container"> 
-    <div class ="navbar">
-        <div class = "logo">
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
             <button routerLink="/products"><img src="./assets/images/mylogo.png" width="175px"></button>
         </div>
         <nav>
-            <ul>                 
-                <li><a routerLink="/products">Home</a></li>              
-                <li><a routerLink="/product-shop">Shop</a></li>              
-                <li><a routerLink="/product">Add Product</a></li>               
+            <ul>
+                <li><a routerLink="/products">Home</a></li>
+                <li><a routerLink="/product-shop">Shop</a></li>
+                <li><a routerLink="/product">Add Product</a></li>
                 <li><a routerLink="/product-list">List products</a></li>
-                <li><a routerLink="/product-control">My products</a></li>               
-                <li><a routerLink="/payment">Payment</a></li>    
+                <li><a routerLink="/product-control">My products</a></li>
+                <li><a routerLink="/payment">Payment</a></li>
             </ul>
-        </nav>                            
+        </nav>
         <span style="margin-right: 40px;"><a routerLink="/login">LOGIN</a></span>
-        <button routerLink="/shopping-cart"><img src="./assets/images/cart.png" width="40px" height="40px"></button>
-       </div>
+        <button routerLink="/shopping-cart"><img src="./assets/images/cart.png" width="30px" height="30px"></button>
+        <span class="badge rounded-pill badge-notification bg-danger" style="width: 15px; height: 15px;">{{amount}}</span>
+    </div>
 </div>
