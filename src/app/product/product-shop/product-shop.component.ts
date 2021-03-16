@@ -47,6 +47,6 @@ export class ProductShopComponent implements OnInit {
   onAddtoCartClick(product: Product) {
     this.getProductDetail(product.PId);
     add({ id: product.PId, name: product.Title, price: product.Price })
-    this.toastr.success('Sepete Eklendi!', '');
+    this.toastr.success('Sepete Eklendi!', '', {timeOut: 1000});
   }
 }

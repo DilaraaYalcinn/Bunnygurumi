@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
       error => {
         console.log('error: ', error);
         this.isFailed = true;
-        this.toastr.error("Invalid username or password");
+        this.toastr.error("Invalid username or password", "Try Again");
       }
     );
   }

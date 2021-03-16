@@ -5,6 +5,7 @@ import { list, remove, total, quantity } from 'cart-localstorage'
 import { OrderProductService } from '../shared/order-product.service';
 import { OrderProduct } from '../shared/order-product.model';
 import { Order } from '../shared/order.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment',
@@ -15,7 +16,13 @@ export class PaymentComponent implements OnInit {
 
   orderId: number = 0;
   productsInTheCard: any[] = [];
-  constructor(public service: OrderService, public productService: ProductService, public orderProductService: OrderProductService) { }
+
+  constructor(
+    public service: OrderService,
+    public productService: ProductService,
+    public orderProductService: OrderProductService,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -28,9 +35,11 @@ export class PaymentComponent implements OnInit {
         let order = res as Order;
         this.orderId = order.OId;
         this.handlePostOrderProduct();
+        this.toastr.success("Siparişiniz Başarıyla oluşturuldu.", '#1237278842');
       },
       err => {
         console.log(err);
+        this.toastr.error("Bilinmeyen Bir Hata Oluştu.", 'Tekrar Deneyin');
       }
     )
   }
@@ -51,6 +60,7 @@ export class PaymentComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.toastr.error("Bilinmeyen Bir Hata Oluştu.", 'Tekrar Deneyin');
         }
       );
     })

@@ -6,13 +6,13 @@
         <input type="hidden" name="UId" [value]="service.formData.UId" />
         <div class="mb-3 form-group">          
             <label for="Username">Username</label>
-            <em *ngIf="form.controls.Username?.invalid && form.controls.Username?.touched">Required</em>
+            <em *ngIf="form.controls.Username?.invalid && form.controls.Username?.touched"> *</em>
             <input type="text" name="Username" #Username="ngModel" [(ngModel)]="service.formData.Username" class="form-control"
                 id="Username" placeholder="Username" required>
         </div>
         <div class="mb-3 form-group">          
             <label for="Password">Password</label>
-            <em *ngIf="form.controls.Password?.invalid && form.controls.Password?.touched">Required</em>
+            <em *ngIf="form.controls.Password?.invalid && form.controls.Password?.touched"> *</em>
             <input type="Password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" class="form-control"
                 id="Password" placeholder="Password" required>
         </div>
@@ -25,9 +25,6 @@
                     <button class="btn btn-info btn-lg btn-block">REGISTER</button>
                 </div>
             </div>
-        </div>
-        <div class="mb-3 form-group">          
-           <p *ngIf ="isFailed" style="background-color: darkred; color:white; text-align: center;">Invalid username or password</p>
         </div>
     </form>
 </div>
