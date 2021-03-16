@@ -116,3 +116,12 @@ hr {
 .button:focus-visible {
   background-color: #333;
 }
+.btn:hover{
+  background-color: #31376C;
+  border-color: #31376C;
+  }
+  .btn{
+      background-color: #E3A7A8;
+      
+      border-color: #E3A7A8;
+      }

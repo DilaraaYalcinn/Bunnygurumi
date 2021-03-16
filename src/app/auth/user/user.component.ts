@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/user.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user',
@@ -14,7 +15,7 @@ export class UserComponent implements OnInit {
   public response: { dbPath: '' };
   isFailed: boolean = false;
 
-  constructor(public service: UserService, private router: Router) { }
+  constructor(public service: UserService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +31,7 @@ export class UserComponent implements OnInit {
       error => {
         console.log('error: ', error);
         this.isFailed = true;
+        this.toastr.error("Invalid username or password");
       }
     );
   }

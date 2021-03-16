@@ -3,6 +3,7 @@ import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
 import { add, total, destroy } from 'cart-localstorage'
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-shop',
@@ -17,7 +18,7 @@ export class ProductShopComponent implements OnInit {
 
   ProductList: Product[] = [];
 
-  constructor(public service: ProductService, private root: ActivatedRoute) { }
+  constructor(public service: ProductService, private root: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.service.refreshList();
@@ -46,5 +47,6 @@ export class ProductShopComponent implements OnInit {
   onAddtoCartClick(product: Product) {
     this.getProductDetail(product.PId);
     add({ id: product.PId, name: product.Title, price: product.Price })
+    this.toastr.success('Sepete Eklendi!', '');
   }
 }

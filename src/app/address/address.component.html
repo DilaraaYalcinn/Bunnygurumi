@@ -3,41 +3,43 @@
   <p>Please enter your shipping details.</p>
   <hr />
   <form #form="ngForm" autocomplete="off">
-    <div class="form">
+    <div class="form"> 
+      <input type="hidden" name="SAId" [value]="service.formData.SAId" />  
       <div class="fields fields--2">
         <label class="field">
-          <span class="field__label" for="firstname">First name</span>
-          <input class="field__input" type="text" id="firstname" value="John" />
+          <span class="field__label" for="Name">First name</span>
+          <input class="field__input" type="text" id="Name" name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" required />
         </label>
         <label class="field">
-          <span class="field__label" for="lastname">Last name</span>
-          <input class="field__input" type="text" id="lastname" value="Doe" />
+          <span class="field__label" for="Surname">Last name</span>
+          <input class="field__input" type="text" id="Surname" name="Surname" #Surname="ngModel" [(ngModel)]="service.formData.Surname" required />
         </label>
       </div>
       <label class="field">
-        <span class="field__label" for="address">Address</span>
-        <input class="field__input" type="text" id="address" />
+        <span class="field__label" for="Address">Address</span>
+        <input class="field__input" type="text" id="Address" name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" required  />
       </label>
       <label class="field">
-        <span class="field__label" for="country">Country</span>
-        <input class="field__input" type="text" id="country" />
+        <span class="field__label" for="Country">Country</span>
+        <input class="field__input" type="text" id="Country" name="Country" #Country="ngModel" [(ngModel)]="service.formData.Country" required  />
       </label>
       <div class="fields fields--3">
         <label class="field">
-          <span class="field__label" for="zipcode">Zip code</span>
-          <input class="field__input" type="text" id="zipcode" />
+          <span class="field__label" for="Zipcode">Zip code</span>
+          <input class="field__input" type="text" id="Zipcode" name="Zipcode" #Zipcode="ngModel" [(ngModel)]="service.formData.Zipcode"/>
         </label>
         <label class="field">
-          <span class="field__label" for="city">City</span>
-          <input class="field__input" type="text" id="city" />
+          <span class="field__label" for="City">City</span>
+          <input class="field__input" type="text" id="City" name="City" #City="ngModel" [(ngModel)]="service.formData.City" />
         </label>
         <label class="field">
-          <span class="field__label" for="state">State</span>
-          <input class="field__input" type="text" id="state" />
+          <span class="field__label" for="State">State</span>
+          <input class="field__input" type="text" id="State" name="State" #State="ngModel" [(ngModel)]="service.formData.State" />
         </label>
       </div>
     </div>
   </form>
   <hr>
+  <button routerLink="/shopping-cart" class="btn btn-info float-left">Back</button>
   <button (click)="onClick(form)" routerLink="/payment" class="btn btn-info float-right">CONTINUE</button>
 </div>

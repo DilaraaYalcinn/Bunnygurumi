@@ -18,5 +18,12 @@ a{
 .rounded-circle{
     border-color: #555;
 }
+.badge{
+    margin-top: 10px;  
+    margin-right: 10px;  
+    margin-left: 15px;
+    height:25px;
+    font-size: 15px;
+}
 
     

@@ -5,27 +5,25 @@
         <label *ngIf="doNotShow" class="custom-control-label" for="customSwitch1"><b>Tükenenleri Göster</b></label>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col col-sm-6" *ngFor="let product of (routeToShop ? service.list.slice(0, 5) : service.list)">
+        <div class="col col-sm-6"
+            *ngFor="let product of (routeToShop ? service.list.slice(0, 5) : service.list)">
             <div class="card h-100">
                 <a [routerLink]="['/products/', product.PId]">
                     <img src="./assets/images/yellowbunny.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{product.Title}}</h5>
                         <p class="card-text">{{product.Explanation}}</p>
-                        <h5> <span style="float: right;" class="badge badge-secondary">{{product.Price}} TL</span></h5>
-                        <br>
                     </div>
                 </a>
-                <div class="card-footer bg-transparent" style="border-top:none;">
-                    <h5 *ngIf="product?.IsSold"> <span style="float:left;" class="badge badge-dark">
-                            Tükendi</span>
-                    </h5>
+                <div>
+                    <span *ngIf="product?.IsSold" style="float:left; display:inline;" class="badge badge-dark">
+                        Tükendi</span>
                     <button (click)="onAddtoCartClick(product)" type="button" class="addCart">
-                        <h5 *ngIf="!product?.IsSold"> <span style="float: left; margin-bottom: 8px;"
-                                class="badge badge-warning"><i class="fas fa-plus"></i> Sepete Ekle</span></h5>
+                        <span *ngIf="!product?.IsSold" style="float: left;display:inline; margin-bottom: 8px;"
+                            class="badge badge-warning"><i class="fas fa-plus"></i> Sepete Ekle</span>
                     </button>
+                    <span style="float: right;display:inline;" class="badge badge-secondary">{{product.Price}} TL</span>
                 </div>
-
             </div>
         </div>
         <div *ngIf="routeToShop" class="row row-cols-1 row-cols-md-3 g-4" id="shopNow">

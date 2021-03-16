@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ShippingAddressService } from '../shared/shipping-address.service';
 
 @Component({
   selector: 'app-address',
@@ -8,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class AddressComponent implements OnInit {
 
   public adress: string = '';
-  constructor() { }
+  constructor( public service: ShippingAddressService) { }
 
   ngOnInit(): void {
   }
-  onClick(form) {
+  onClick(form: NgForm) {
+    this.service.postAddress(form.value).subscribe(
+      result => {
+        console.log('success: ', result);
+      },
+      error => console.log('error: ', error)
+    );
     // console.log("form ",form)
     // var inputValue = (<HTMLInputElement>document.getElementById(address)).value;
   }

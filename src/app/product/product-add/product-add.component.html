@@ -11,6 +11,8 @@
                 <form novalidate #form="ngForm" (submit)="onSubmit(form)">
                     <input type="hidden" name="PId" [value]="service.formData.PId" />                   
                     <div class="mb-3 form-group">
+                       <label for="Title"></label>
+                        <em *ngIf="form.controls.Title?.invalid || form.controls.Title?.touched">Required</em>
                         <input type="text" name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title"
                             class="form-control" id="Title" placeholder="Product Title" required>
                     </div>

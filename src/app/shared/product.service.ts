@@ -15,7 +15,9 @@ export class ProductService {
   list: Product[] = [];
   sellerList: Product[] = [];
   orderProductIdList:number[] = [];
+  filteredList: any[]= [];
 
+  
   constructor(private http: HttpClient, public userService: UserService) { }
 
   getSellersProduct(UId: number){
@@ -43,8 +45,13 @@ export class ProductService {
     return this.http.get(this.rootURL + '/Product')
     .toPromise()
     .then(res =>this.list = res as Product[]);
+    
   }
-  
+  fillFilteredList(){
+    this.filteredList = this.list.filter(product => product.IsSold === false);
+    console.log("filtered list: ", this.filteredList);
+  }
+
   refreshSellerList() {
     return this.http.get(`${this.rootURL}/SellerProducts/${this.userService.formData[0]?.SId}`)
     .toPromise()
