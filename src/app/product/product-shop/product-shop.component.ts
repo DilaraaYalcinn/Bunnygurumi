@@ -21,6 +21,10 @@ export class ProductShopComponent implements OnInit {
   constructor(public service: ProductService, private root: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    //anasayfada tükenmiş ürünler listelenmiyor
+    if(this.routeToShop)
+      this.service.refreshList().then((value) => this.service.list = value.filter(product => product.IsSold === false))
+    else
     this.service.refreshList();
   }
 

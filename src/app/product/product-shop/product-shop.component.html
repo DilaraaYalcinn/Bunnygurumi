@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="custom-control custom-switch">
+    <div *ngIf="!routeToShop" class="custom-control custom-switch">
         <input (click)="doNotShowCheck()" type="checkbox" class="custom-control-input" id="customSwitch1">
         <label *ngIf="!doNotShow" class="custom-control-label" for="customSwitch1"><b>Tükenenleri Gösterme</b></label>
         <label *ngIf="doNotShow" class="custom-control-label" for="customSwitch1"><b>Tükenenleri Göster</b></label>

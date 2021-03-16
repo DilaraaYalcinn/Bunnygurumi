@@ -22,6 +22,7 @@ import { ProductAddComponent } from './product/product-add/product-add.component
 import { AddressComponent } from './address/address.component';
 import { UserComponent } from './auth/user/user.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { RegisterComponent } from './auth/register/register.component';
     AddressComponent,
     UserComponent,
     RegisterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
