@@ -14,6 +14,7 @@
             </ul>
         </nav>
         <span style="margin-right: 40px;"><a routerLink="/login">LOGIN</a></span>
+        <button style="margin-right: 40px;" class="btn my-2 my-sm-0" (click)="onLogout()">Logout</button>
         <button routerLink="/shopping-cart"><img src="./assets/images/cart.png" width="30px" height="30px"></button>
         <span class="badge rounded-pill badge-notification bg-danger" style="width: 15px; height: 15px;">{{amount}}</span>
     </div>

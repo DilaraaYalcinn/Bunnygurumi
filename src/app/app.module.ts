@@ -23,6 +23,7 @@ import { AddressComponent } from './address/address.component';
 import { UserComponent } from './auth/user/user.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FooterComponent } from './footer/footer.component';
     UserComponent,
     RegisterComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [
     ReactiveFormsModule,

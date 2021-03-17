@@ -33,6 +33,9 @@
     a:hover{
         color:goldenrod;
     }
+    button:hover{
+        color:goldenrod;
+    }
     p{
         color:#555;
     }

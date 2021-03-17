@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   readonly rootURL = "http://localhost:2805/api";
@@ -42,5 +42,13 @@ export class AuthService {
       Password: this.formModel.value.Passwords.Password
     };
     return this.http.post(this.rootURL + '/ApplicationUser/Register', body);
+  }
+  
+  login(formData) {
+    return this.http.post(this.rootURL + '/ApplicationUser/Login', formData);
+  }
+
+  getUserProfile() {
+    return this.http.get(this.rootURL + '/UserProfile');
   }
 }

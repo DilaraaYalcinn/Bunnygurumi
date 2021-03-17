@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.service.formModel.reset();
+    
   }
 
   onSubmit() {
