@@ -5,7 +5,6 @@
     <!-- Top navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
-        
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
@@ -40,15 +39,16 @@
       </div>
     </nav>
     <!-- Header -->
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 300px; background-image: url(https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+      style="min-height: 300px; background-image: url(https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello Dilara</h1>
-            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+            <h1 class="display-2 text-white">Hello {{FirstName}}</h1>
+            <p class="text-white mt-0 mb-5">This is your profile page. You can see your personal information and your orders. Also, you can contact with us.</p>
             <a href="#!" class="btn btn-info">Edit profile</a>
           </div>
         </div>
@@ -75,16 +75,20 @@
               </div>
             </div>
             <div class="card-body pt-0 pt-md-4">
-                <div class="row">
-                    <div>
-                      <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Personal Info</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Orders</a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
-                      </div>
-                    </div>
+              <div class="row">
+                <div>
+                  <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                      href="#list-home" role="tab" aria-controls="home">Personal Info</a>
+                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                      href="#list-profile" role="tab" aria-controls="profile">Orders</a>
+                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                      href="#list-messages" role="tab" aria-controls="messages">Messages</a>
+                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                      href="#list-settings" role="tab" aria-controls="settings">Settings</a>
                   </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -108,65 +112,69 @@
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="dilara.yalcin">
+                        <input type="text" id="input-username" class="form-control form-control-alternative"
+                          placeholder="Username" value="{{userDetails?.UserName}}">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="user@example.com">
+                        <input type="email" id="input-email" class="form-control form-control-alternative"
+                          placeholder="user@example.com" value="{{userDetails?.Email}}">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group focused">
-                        <label class="form-control-label" for="input-first-name">First name</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Dilara">
+                        <label class="form-control-label" for="input-first-name">Full name</label>
+                        <input type="text" id="input-full-name" class="form-control form-control-alternative"
+                          placeholder="Full name" value="{{userDetails?.FullName}}">
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <div class="form-group focused">
-                        <label class="form-control-label" for="input-last-name">Last name</label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Yalcin">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-phone">Phone</label>
+                        <input type="phone" id="input-phone" class="form-control form-control-alternative"
+                          placeholder="5362780328">
                       </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-phone">Phone</label>
-                          <input type="phone" id="input-phone" class="form-control form-control-alternative" placeholder="5362780328">
-                        </div>
-                      </div>
                   </div>
                 </div>
                 <hr class="my-4">
                 <!-- Address -->
                 <h6 class="heading-small text-muted mb-4">Address information</h6>
-                <div class="pl-lg-4">    <div class="row">
+                <div class="pl-lg-4">
+                  <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-city">First Name</label>
-                        <input type="text" id="address-firtname" class="form-control form-control-alternative" placeholder="First Name" value="Dilara">
+                        <input type="text" id="address-firtname" class="form-control form-control-alternative"
+                          placeholder="First Name" value="Dilara">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-country">Last Name</label>
-                        <input type="text" id="address-lastname" class="form-control form-control-alternative" placeholder="Last Name" value="Yalcin">
+                        <input type="text" id="address-lastname" class="form-control form-control-alternative"
+                          placeholder="Last Name" value="Yalcin">
                       </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="form-group focused">
-                          <label class="form-control-label" for="input-country">Country</label>
-                          <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="Turkey">
-                        </div>
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-country">Country</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative"
+                          placeholder="Country" value="Turkey">
                       </div>
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-address">Address</label>
-                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                        <input id="input-address" class="form-control form-control-alternative"
+                          placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                          type="text">
                       </div>
                     </div>
                   </div>
@@ -174,19 +182,22 @@
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-city">City</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="İzmir">
+                        <input type="text" id="input-city" class="form-control form-control-alternative"
+                          placeholder="City" value="İzmir">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-country">State</label>
-                        <input type="text" id="input-state" class="form-control form-control-alternative" placeholder="State" value="Karsiyaka">
+                        <input type="text" id="input-state" class="form-control form-control-alternative"
+                          placeholder="State" value="Karsiyaka">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Postal code</label>
-                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                        <input type="number" id="input-postal-code" class="form-control form-control-alternative"
+                          placeholder="Postal code">
                       </div>
                     </div>
                   </div>
@@ -197,7 +208,8 @@
                 <div class="pl-lg-4">
                   <div class="form-group focused">
                     <label>About Me</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ..."></textarea>
+                    <textarea rows="4" class="form-control form-control-alternative"
+                      placeholder="A few words about you ..."></textarea>
                   </div>
                 </div>
               </form>
