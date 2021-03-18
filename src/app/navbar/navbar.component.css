@@ -11,9 +11,8 @@ body {
   display: block;
   backface-visibility: hidden;
 }
-.container:hover .brightness {
+button:hover .brightness {
     opacity: 0.5;
-    color: gold;
   }
 
 .navbar {
