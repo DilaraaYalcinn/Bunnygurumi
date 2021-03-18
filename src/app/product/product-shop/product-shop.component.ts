@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
 import { add, total, destroy } from 'cart-localstorage'
@@ -18,14 +18,14 @@ export class ProductShopComponent implements OnInit {
 
   ProductList: Product[] = [];
 
-  constructor(public service: ProductService, private root: ActivatedRoute,private toastr: ToastrService) { }
+  constructor(public service: ProductService, private root: ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     //anasayfada tükenmiş ürünler listelenmiyor
-    if(this.routeToShop)
+    if (this.routeToShop)
       this.service.refreshList().then((value) => this.service.list = value.filter(product => product.IsSold === false))
     else
-    this.service.refreshList();
+      this.service.refreshList();
   }
 
   doNotShowCheck() {
@@ -33,7 +33,7 @@ export class ProductShopComponent implements OnInit {
     if (!this.doNotShow) {
       this.service.refreshList().then((value) => this.service.list = value.filter(product => product.IsSold === false))
       this.doNotShow = true;
-    }else{ // servisteki bütün elemanların old listeyi çağır
+    } else { // servisteki bütün elemanların old listeyi çağır
       this.service.refreshList();
       this.doNotShow = false;
     }
@@ -51,6 +51,30 @@ export class ProductShopComponent implements OnInit {
   onAddtoCartClick(product: Product) {
     this.getProductDetail(product.PId);
     add({ id: product.PId, name: product.Title, price: product.Price })
-    this.toastr.success('Sepete Eklendi!', '', {timeOut: 1000});
+    this.toastr.success('Sepete Eklendi!', '', { timeOut: 1000 });
+  }
+  
+  /*go to top */
+  isShow: boolean;
+  topPosToStartShowing = 100;
+  @HostListener('window:scroll')
+  /*end of go to top declarations */
+
+  checkScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    console.log('[scroll]', scrollPosition);
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  gotoTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 }

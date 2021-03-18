@@ -1,5 +1,13 @@
 @import '~ngx-toastr/toastr.css';
-
+.top{
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+}
 em{
   float: right;
   padding-left: 10px;
@@ -22,6 +30,7 @@ em{
   thead th{
     font-weight: 400;
   }
+
   
   table tr:hover {
     background-color: #fffbf2;

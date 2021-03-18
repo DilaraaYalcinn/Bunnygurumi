@@ -24,6 +24,7 @@ import { UserComponent } from './auth/user/user.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { LoginComponent } from './auth/login/login.component';
     RegisterComponent,
     FooterComponent,
     LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     ReactiveFormsModule,
