@@ -6,7 +6,6 @@ import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { OrderProduct } from '../shared/order-product.model';
 import { OrderService } from '../shared/order.service';
 
-
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -18,16 +17,16 @@ export class ShoppingCartComponent implements OnInit {
   public orderProductList: OrderProduct[] = [];
   public totalPrice:number = 0;
   public IsContinue: boolean = false;
-  tableHeaders = {Title: 'Title', Price: 'Price', Quantity: 'Quantity'}
 
   constructor(public service: ProductService,public orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.productList = list();
-    this.totalPrice= total()
+    this.refreshCartList();
+   
   }
   refreshCartList() {
-    list()
+    this.productList = list(); 
+    this.totalPrice= total()
   }
   
   onDelete(id: number) {
@@ -43,7 +42,7 @@ export class ShoppingCartComponent implements OnInit {
 
   onPlus(id:number){
     quantity(id,+1) 
-    list();
+    this.refreshCartList();
   }
 
   handleClick(){

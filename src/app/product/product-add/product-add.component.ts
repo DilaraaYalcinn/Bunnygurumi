@@ -44,17 +44,18 @@ export class ProductAddComponent implements OnInit {
     console.log("form: ", form);
      // this.service.formData.ImagePath = this.imgPath;
     this.service.postProduct(form.value, this.imgPath).subscribe(
-      result => {
-        this.resetForm(form);
-        console.log('success: ', result);
+      (result) => {
+        console.log('success deneme: ', result);
         this.toastr.success('Successfully Added.');
+        this.resetForm(form);
       },
       error => this.toastr.success('Something Went Wrong.')
     );
   }
   updateRecord(form: NgForm) {
     this.service.putProduct().subscribe(
-      res => {
+      (res) => {
+        console.log('success up: ', res);
         this.resetForm(form);
         this.service.refreshList();
         this.toastr.success('Successfully Updated.');
