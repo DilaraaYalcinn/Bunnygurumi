@@ -22,12 +22,16 @@ export class ProductShopComponent implements OnInit {
 
   ngOnInit(): void {
     //anasayfada tükenmiş ürünler listelenmiyor
+    console.log("routetoShop:",this.routeToShop)
     if (this.routeToShop)
       this.service.refreshList().then((value) => this.service.list = value.filter(product => product.IsSold === false))
+     
     else
       this.service.refreshList();
   }
-
+  public createImgPath = (serverPath: string) => {
+    return `http://localhost:2805/${serverPath}`;
+  }
   doNotShowCheck() {
     //tükenenleri göster butonuna basıldıysa servisteki listeyi filtreleyerek tekrar servisteki listeye ata
     if (!this.doNotShow) {

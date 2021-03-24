@@ -25,6 +25,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BunnyShopCardListComponent } from './bunny-shop-card-list/bunny-shop-card-list.component';
+import { BunnyProductTableComponent } from './bunny-product-table/bunny-product-table.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { ProfileComponent } from './profile/profile.component';
     FooterComponent,
     LoginComponent,
     ProfileComponent,
+    BunnyShopCardListComponent,
+    BunnyProductTableComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -41,23 +41,7 @@ a{
     transition: 0.3s;
   }
   
-  .addCart span:after {
-    content: '\002b';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .addCart:hover span {
-    padding-right: 25px;
-  }
-  
-  .addCart:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
+ 
 .custom-switch{
     margin-bottom: 15px;
 }

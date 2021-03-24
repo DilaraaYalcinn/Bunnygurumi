@@ -1,39 +1,20 @@
 <div class="container">
     <div *ngIf="!routeToShop" class="custom-control custom-switch">
         <input (click)="doNotShowCheck()" type="checkbox" class="custom-control-input" id="customSwitch1">
-        <label *ngIf="!doNotShow" class="custom-control-label" for="customSwitch1"><b>Tükenenleri Gösterme</b></label>
-        <label *ngIf="doNotShow" class="custom-control-label" for="customSwitch1"><b>Tükenenleri Göster</b></label>
+        <label class="custom-control-label" for="customSwitch1"><b>{{doNotShow ? 'Tükenenleri Göster' : 'Tükenenleri
+                Gösterme'}}</b></label>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col col-sm-6"
-            *ngFor="let product of (routeToShop ? service.list.slice(0, 5) : service.list)">
+    <bunny-shop-card-list [productList]="(routeToShop ? service.list.slice(0, 5) : service.list)"
+        (addToCartClicked)="onAddtoCartClick($event)">
+    </bunny-shop-card-list>
+
+    <div *ngIf="routeToShop" class="row row-cols-1 row-cols-md-3 g-4" id="shopNow">
+        <div class="col col-sm-6">
             <div class="card h-100">
-                <a [routerLink]="['/products/', product.PId]">
-                    <img src="./assets/images/yellowbunny.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{product.Title}}</h5>
-                        <p class="card-text">{{product.Explanation}}</p>
-                    </div>
-                </a>
-                <div>
-                    <span *ngIf="product?.IsSold" style="float:left; display:inline;" class="badge badge-dark">
-                        Tükendi</span>
-                    <button (click)="onAddtoCartClick(product)" type="button" class="addCart" style="vertical-align:middle">
-                        <span *ngIf="!product?.IsSold" style="float: left;display:inline; margin-bottom: 8px;"
-                            class="badge badge-warning"><i class="fas fa-plus"></i> Sepete Ekle</span>
-                    </button>
-                    <span style="float: right;display:inline;" class="badge badge-secondary">{{product.Price}} TL</span>
-                </div>
-            </div>
-        </div>
-        <div *ngIf="routeToShop" class="row row-cols-1 row-cols-md-3 g-4" id="shopNow">
-            <div class="col col-sm-6">
-                <div class="card h-100">
-                    <img src="./assets/images/cart.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"> <a routerLink="/product-shop">Shop Now!</a></h5>
-                        <p class="card-text"></p>
-                    </div>
+                <img src="./assets/images/cart.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> <a routerLink="/product-shop">Shop Now!</a></h5>
+                    <p class="card-text"></p>
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class AuthService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
+  public currentUser;
 
   readonly rootURL = "http://localhost:2805/api";
 

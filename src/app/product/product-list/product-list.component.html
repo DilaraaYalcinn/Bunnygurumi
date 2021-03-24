@@ -1,25 +1,11 @@
 <div class="container">
-<table class="table table-hover">
-    <thead class="thead-light">
-        <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Explanation</th>
-            <th>Price</th>
-            <th><button type="button" (click)="resetForm()" routerLink="/product" class="btn btn-info" id="add" ><i class="far fa-plus-square"></i></button></th>
-        </tr>
-    </thead>
-    <tr *ngFor="let product of service.sellerList" id="cssTable">
-        <td><img src="./assets/images/yellowbunny.jpg " class="card-img-top" alt="..." style="height: 70px; width: 100px;"></td>
-        <td>{{product.Title}}</td>
-        <td >{{product.Explanation}}</td>
-        <td >{{product.Price}} TL</td>
-        <td align="right">           
-          <button (click)="populateForm(product)" class="btn btn-sm btn-outline-danger" routerLink="/product" style="margin-right:15px;" id="edit"><i class="far fa-edit"></i></button>
-          <button class="btn btn-sm btn-outline-danger" (click)="onDelete(product.PId)"><i class="far fa-trash-alt"></i></button>
-      </td>
-    </tr>
-</table>
+    <!--TODO: productTables component yapılacak -->
+    <!-- <bunny-product-table [bun-product-list]="productList" (bun-product-delete)="productDelete($event)"></bunny-product-table> -->
+    <bunny-product-table [bun_product_list]="service.list" (bun_product_delete)="productDelete($event)"
+        (bun_populate_product_form)="populateProductForm($event)"
+        (bun_reset_product_form)="resetProductForm()">
+    </bunny-product-table>
 
-<h5 *ngIf ="!isListExist" style="text-align: center;">You do not have any products yet! Click Add button to start.</h5>
+    <h5 *ngIf="!isListExist" style="text-align: center;">You do not have any products yet! Click Add button to start.
+    </h5>
 </div>

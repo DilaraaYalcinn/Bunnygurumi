@@ -40,7 +40,10 @@ export class ProductAddComponent implements OnInit {
 
   insertRecord(form: NgForm): void {
     console.log("In onSubmit: ", form.valid);
-    this.service.postProduct(form.value).subscribe(
+   // if(this.imgPath)
+    console.log("form: ", form);
+     // this.service.formData.ImagePath = this.imgPath;
+    this.service.postProduct(form.value, this.imgPath).subscribe(
       result => {
         this.resetForm(form);
         console.log('success: ', result);

@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
     this.service.getUserProfile().subscribe(
       res => {
         this.userDetails = res;
+        this.service.currentUser = res;
         let splittedName = this.userDetails?.FullName.split(" ");
         this.FirstName = splittedName[0];
         this.LastName = splittedName[1];

@@ -3,6 +3,7 @@ import { Product } from './product.model';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
 import { OrderProduct } from './order-product.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +19,20 @@ export class ProductService {
   filteredList: any[]= [];
 
   
-  constructor(private http: HttpClient, public userService: UserService) { }
+  constructor(private http: HttpClient, public userService: UserService,public authService: AuthService) { }
 
   getSellersProduct(UId: number){
     return this.http.get(`${this.rootURL}/SellerProducts/${UId}`);
   }
   
-  postProduct(formData: Product) {
-    formData.SellerId = this.userService.formData[0]?.UId;
+  public createImgPath = (serverPath: string) => {
+    return `http://localhost:2805/${serverPath}`;
+  }
+
+  postProduct(formData: Product, ImagePath) {
+    formData.UserId = 1;
+    //formData.SellerId = this.userService.formData[0]?.UId;
+    formData.ImagePath = ImagePath;
     return this.http.post(this.rootURL + '/Product', formData);
   }
  
@@ -53,7 +60,7 @@ export class ProductService {
   }
 
   refreshSellerList() {
-    return this.http.get(`${this.rootURL}/SellerProducts/${this.userService.formData[0]?.SId}`)
+    return this.http.get(`${this.rootURL}/SellerProducts/${this.authService.currentUser?.Id}`)
     .toPromise()
     .then(res =>this.sellerList = res as Product[]);
   }

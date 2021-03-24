@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/shared/auth.service';
 import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
 import { UserService } from 'src/app/shared/user.service';
@@ -10,24 +11,28 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class ProductListComponent implements OnInit {
   isListExist: boolean = true;
-  constructor(public service: ProductService, private userService: UserService) { }
+  constructor(public service: ProductService, private userService: UserService, private authService: AuthService) { }
 
+  public createImgPath = (serverPath: string) => {
+    return `http://localhost:2805/${serverPath}`;
+  }
   ngOnInit(): void {
-    console.log("UID:", this.userService.formData[0]?.UId)
-    if (this.userService.formData[0]?.UId) {
+    console.log("UID:", this.authService.currentUser?.Id)
+    this.service.refreshList();
+  /*  if (this.authService.currentUser?.Id) {
         this.service.refreshSellerList();
     }
     else {
       this.isListExist = false;
-    }
+    } */
   }
-  populateForm(selectedRecord: Product) {
+  populateProductForm(selectedRecord: Product) {
     this.service.formData = Object.assign({}, selectedRecord);
   }
-  resetForm() {
+  resetProductForm() {
     this.service.formData = new Product();
   }
-  onDelete(id: number) {
+  productDelete(id: number) {
     if (confirm('Are you sure to delete this record ?')) {
       this.service.deleteProduct(id)
         .subscribe(response => {
