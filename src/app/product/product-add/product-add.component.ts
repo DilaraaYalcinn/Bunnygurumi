@@ -47,8 +47,9 @@ export class ProductAddComponent implements OnInit {
       result => {
         this.resetForm(form);
         console.log('success: ', result);
+        this.toastr.success('Successfully Added.');
       },
-      error => console.log('error: ', error)
+      error => this.toastr.success('Something Went Wrong.')
     );
   }
   updateRecord(form: NgForm) {
@@ -56,6 +57,7 @@ export class ProductAddComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.service.refreshList();
+        this.toastr.success('Successfully Updated.');
       },
       err => {
         console.log(err);

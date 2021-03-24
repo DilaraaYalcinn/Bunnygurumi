@@ -17,7 +17,8 @@ export class ShoppingCartComponent implements OnInit {
   public orderProduct: OrderProduct;
   public orderProductList: OrderProduct[] = [];
   public totalPrice:number = 0;
-  public IsContinue: boolean = false; 
+  public IsContinue: boolean = false;
+  tableHeaders = {Title: 'Title', Price: 'Price', Quantity: 'Quantity'}
 
   constructor(public service: ProductService,public orderService: OrderService) { }
 
@@ -36,11 +37,13 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
   onMinus(id:number){
-    quantity(id,-1) 
+    quantity(id,-1)
+    this.refreshCartList();
   }
 
   onPlus(id:number){
     quantity(id,+1) 
+    list();
   }
 
   handleClick(){
