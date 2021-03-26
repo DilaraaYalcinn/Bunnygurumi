@@ -1,7 +1,7 @@
 <div class="container">
     <!--TODO: productTables component yapılacak -->
     <!-- <bunny-product-table [bun-product-list]="productList" (bun-product-delete)="productDelete($event)"></bunny-product-table> -->
-    <bunny-product-table [bun_product_list]="service.list" (bun_product_delete)="productDelete($event)"
+    <bunny-product-table [bun_product_list]="service.sellerList" (bun_product_delete)="productDelete($event)"
         (bun_populate_product_form)="populateProductForm($event)"
         (bun_reset_product_form)="resetProductForm()">
     </bunny-product-table>

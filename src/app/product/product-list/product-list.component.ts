@@ -16,27 +16,29 @@ export class ProductListComponent implements OnInit {
   public createImgPath = (serverPath: string) => {
     return `http://localhost:2805/${serverPath}`;
   }
+  
   ngOnInit(): void {
-    console.log("UID:", this.authService.currentUser?.Id)
-    this.service.refreshList();
-  /*  if (this.authService.currentUser?.Id) {
-        this.service.refreshSellerList();
+    if (this.authService.currentUser?.Id) {
+      this.service.refreshSellerList();
     }
     else {
       this.isListExist = false;
-    } */
+    }
   }
+
   populateProductForm(selectedRecord: Product) {
     this.service.formData = Object.assign({}, selectedRecord);
   }
+
   resetProductForm() {
     this.service.formData = new Product();
   }
+
   productDelete(id: number) {
     if (confirm('Are you sure to delete this record ?')) {
       this.service.deleteProduct(id)
         .subscribe(response => {
-          this.service.refreshList();
+          this.service.refreshSellerList();
         },
           error => { console.log(error); })
     }
