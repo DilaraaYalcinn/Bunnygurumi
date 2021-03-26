@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/shared/product.model';
 import { ProductService } from 'src/app/shared/product.service';
 
@@ -12,7 +13,7 @@ export class ProductComponent implements OnInit {
   public response: {dbPath: ''};
   public imgPath: any;
   public HeadTitle:string='';
-  constructor(public service: ProductService) { }
+  constructor(public service: ProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     if (this.service.formData.PId == 0)
@@ -37,8 +38,9 @@ export class ProductComponent implements OnInit {
     this.service.postProduct(form.value, this.imgPath).subscribe(
       result => {this.resetForm(form);
        console.log('success: ', result);
+       this.toastr.success('Successfully Added.');
       },
-      error => console.log('error: ', error)
+      error => this.toastr.success('Something Went Wrong.')
     );
   }
   updateRecord(form: NgForm) {
@@ -46,9 +48,10 @@ export class ProductComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.service.refreshList();
+        this.toastr.success('Successfully Updated.');
       },
       err => {
-        console.log(err);
+        this.toastr.success('Something Went Wrong.')
       }
     )
   }

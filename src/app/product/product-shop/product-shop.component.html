@@ -4,20 +4,11 @@
         <label class="custom-control-label" for="customSwitch1"><b>{{doNotShow ? 'Tükenenleri Göster' : 'Tükenenleri
                 Gösterme'}}</b></label>
     </div>
-    <bunny-shop-card-list [productList]="(routeToShop ? service.list.slice(0, 5) : service.list)"
+    <bunny-shop-card-list [productList]="(routeToShop ? service.list.slice(0, 6) : service.list)"
         (addToCartClicked)="onAddtoCartClick($event)">
     </bunny-shop-card-list>
 
-    <div *ngIf="routeToShop" class="row row-cols-1 row-cols-md-3 g-4" id="shopNow">
-        <div class="col col-sm-6">
-            <div class="card h-100">
-                <img src="./assets/images/cart.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"> <a routerLink="/product-shop">Shop Now!</a></h5>
-                    <p class="card-text"></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <button type="button" class="btn btn-primary btn-block rounded-pill" *ngIf="routeToShop" id="shopNow" routerLink="/product-shop">
+        Show All</button>
 </div>
 <button class="top" *ngIf="isShow" (click)="gotoTop()"><i class="fas fa-chevron-up"></i></button>

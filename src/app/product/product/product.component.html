@@ -5,13 +5,15 @@
     <form novalidate #form="ngForm" (submit)="onSubmit(form)">
         <input type="hidden" name="PId" [value]="service.formData.PId" />        
         <div class="mb-3 form-group">
+            <em *ngIf="form.controls.Title?.invalid && form.controls.Title?.touched"> *</em>
             <input type="text" name="Title" #Title="ngModel" [(ngModel)]="service.formData.Title" class="form-control"
                 id="Title" placeholder="Product Title" required>
         </div>
         <div class="mb-3 form-group">
+            <em *ngIf="form.controls.Explanation?.invalid && form.controls.Explanation?.touched"> *</em>
             <textarea name="Explanation" name="Explanation" #Explanation="ngModel"
                 [(ngModel)]="service.formData.Explanation" class="form-control" placeholder="Product Explanation"
-                id="Explanation" style="height: 100px"></textarea>
+                id="Explanation" style="height: 100px" required></textarea>
         </div>
         <div class="mb-3 form-group">
             <label for="Price">Price</label>

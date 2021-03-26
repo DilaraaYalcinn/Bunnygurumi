@@ -37,7 +37,7 @@ export class ProductShopComponent implements OnInit {
     if (!this.doNotShow) {
       this.service.refreshList().then((value) => this.service.list = value.filter(product => product.IsSold === false))
       this.doNotShow = true;
-    } else { // servisteki bütün elemanların old listeyi çağır
+    } else { // servisteki bütün elemanların olduğu listeyi çağır
       this.service.refreshList();
       this.doNotShow = false;
     }

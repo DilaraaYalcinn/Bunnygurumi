@@ -19,6 +19,18 @@ a{
   height: 100%;
 
 }
+img {
+  border-radius: 5px 5px 0 0;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.24);
+}
 .addCart{
     background-color: white !important;
     display: inline-block;
@@ -39,7 +51,7 @@ a{
     display: inline-block;
     position: relative;
     transition: 0.3s;
-  }
+}
   
  
 .custom-switch{
@@ -59,12 +71,4 @@ a{
 .card-img{
   height: 250px;
   width: 100%;
-}
-.card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
-  }
 }
