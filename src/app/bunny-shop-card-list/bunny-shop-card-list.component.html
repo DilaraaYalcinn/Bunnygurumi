@@ -11,8 +11,8 @@
             <div>
                 <span *ngIf="product?.IsSold" style="float:left; display:inline;" class="badge badge-dark">
                     Tükendi</span>
-                <button (click)="handleAddToCartClicked(product)" type="button" class="addCart" style="vertical-align:middle">
-                    <span *ngIf="!product?.IsSold" style="float: left;display:inline; margin-bottom: 8px;"
+                <button  *ngIf="!product?.IsSold" (click)="handleAddToCartClicked(product)" type="button" class="addCart">
+                    <span id= "addToCartBadge"
                         class="badge badge-warning"><i class="fas fa-plus"></i> Sepete Ekle</span>
                 </button>
                 <span style="float: right;display:inline;" class="badge badge-secondary">{{product.Price}} TL</span>
