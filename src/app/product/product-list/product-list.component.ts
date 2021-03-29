@@ -18,12 +18,21 @@ export class ProductListComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    if (this.authService.currentUser?.Id) {
-      this.service.refreshSellerList();
-    }
-    else {
-      this.isListExist = false;
-    }
+    this.authService.getUserProfile().subscribe(
+      res => {
+        this.authService.currentUser = res;
+        this.service.refreshSellerList();
+      },
+      err => {
+        console.log(err);
+      },
+    );
+    // if (this.authService.currentUser?.Id) {
+    //   this.service.refreshSellerList();
+    // }
+    // else {
+    //   this.isListExist = false;
+    // }
   }
 
   populateProductForm(selectedRecord: Product) {
