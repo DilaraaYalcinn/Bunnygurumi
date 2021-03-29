@@ -30,7 +30,7 @@ export class ProductService {
   }
 
   postProduct(formData: Product, ImagePath) {
-    formData.UserId = 1;
+    formData.UserId = this.authService.currentUser?.Id ? this.authService.currentUser.Id : '';
     //formData.SellerId = this.userService.formData[0]?.UId;
     formData.ImagePath = ImagePath;
     return this.http.post(this.rootURL + '/Product', formData);

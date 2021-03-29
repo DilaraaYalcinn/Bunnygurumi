@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('token') != null)
       this.router.navigateByUrl('/products');
+      this.getUserData();
   }
 
   onSubmit(form: NgForm) {
@@ -33,6 +34,16 @@ export class LoginComponent implements OnInit {
         else
           console.log(err);
       }
+    );
+  }
+  getUserData(){
+    this.service.getUserProfile().subscribe(
+      res => {
+        this.service.currentUser = res;
+      },
+      err => {
+        console.log(err);
+      },
     );
   }
 }

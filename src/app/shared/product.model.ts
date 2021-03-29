@@ -3,7 +3,7 @@ export class Product {
     Title: string='';
     Explanation: string='';
     Price: number= 0; 
-    UserId: number= 0;
+    UserId: string= '';
     PublishDate?: Date;
     IsSold : boolean= false;
     ImagePath : string;

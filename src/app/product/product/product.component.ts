@@ -40,7 +40,7 @@ export class ProductComponent implements OnInit {
        console.log('success: ', result);
        this.toastr.success('Successfully Added.');
       },
-      error => this.toastr.success('Something Went Wrong.')
+      error => this.toastr.error('Something Went Wrong.')
     );
   }
   updateRecord(form: NgForm) {
