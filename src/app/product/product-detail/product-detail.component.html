@@ -43,7 +43,7 @@
                     <h4 *ngIf="selectedProduct?.IsSold"> <span style="float: left; margin: auto;" class="badge badge-warning">Tükendi</span></h4> 
                     <div class="action">
                         <button [disabled] = "selectedProduct?.IsSold" class="add-to-cart btn btn-default" type="button" (click)="addToCart()">add to cart</button>
-                        <button style="margin-left: 10px;" class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                        <button style="margin-left: 10px;" class="like btn btn-default" type="button" (click) = "addToFavorites()"><span class="fa fa-heart"></span></button>
                     </div>
                 </div>
             </div>

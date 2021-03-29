@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/shared/product.service';
 import { add, total,destroy } from 'cart-localstorage'
 import { ToastrService } from 'ngx-toastr';
+import { FavoriteService } from 'src/app/shared/favorite.service';
 
 
 
@@ -14,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductDetailComponent implements OnInit {
   public selectedProduct: any
 
-  constructor(private service: ProductService, private root: ActivatedRoute, private toastr: ToastrService) { }
+  constructor(private service: ProductService, private root: ActivatedRoute, private toastr: ToastrService, private favoriteService: FavoriteService) { }
 
   ngOnInit(): void {
     this.getProductDetail();
@@ -38,6 +39,15 @@ export class ProductDetailComponent implements OnInit {
 
     // console.log(total())
     // output: 300
+  }
+  addToFavorites() {
+    this.favoriteService.postFavorite(+this.root.snapshot.params['id']).subscribe( res => {
+      this.selectedProduct = res;
+      this.toastr.success('Favorilere Eklendi.','', {timeOut: 1000})
+    },
+    err => {
+      this.toastr.warning('Önce giriş yapınız.','Favorilere Eklenemedi!', {timeOut: 2000})
+    })
   }
 
 }
