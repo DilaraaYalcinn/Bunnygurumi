@@ -7,4 +7,6 @@ export class ShippingAddress {
     Zipcode: number= 0;
     City: string= ''; 
     State: string= '';
+    CustomerId: string= ''; 
+    OrderId: number= 0;
 }
