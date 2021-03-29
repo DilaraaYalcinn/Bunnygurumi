@@ -9,7 +9,7 @@
                 </div>
             </a>
             <div>
-                <span *ngIf="product?.IsSold" style="float:left; display:inline;" class="badge badge-dark">
+                <span *ngIf="product?.IsSold" id="ranOut" class="badge badge-dark">
                     Tükendi</span>
                 <button  *ngIf="!product?.IsSold" (click)="handleAddToCartClicked(product)" type="button" class="addCart">
                     <span id= "addToCartBadge"
