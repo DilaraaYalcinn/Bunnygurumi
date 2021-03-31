@@ -4,6 +4,7 @@ import { AddressComponent } from './address/address.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { UserComponent } from './auth/user/user.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductControlComponent } from './product/product-control/product-control.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
  { path: 'payment', component: PaymentComponent }, 
  { path: 'login', component: LoginComponent },
  { path: 'register', component: RegisterComponent },
- { path: 'profile', component: ProfileComponent }, ];
+ { path: 'profile', component: ProfileComponent },
+ { path: 'favorites', component: FavoriteListComponent },  ];
  
 
 @NgModule({

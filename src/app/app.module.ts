@@ -27,6 +27,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BunnyShopCardListComponent } from './bunny-shop-card-list/bunny-shop-card-list.component';
 import { BunnyProductTableComponent } from './bunny-product-table/bunny-product-table.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { BunnyProductTableComponent } from './bunny-product-table/bunny-product-
     ProfileComponent,
     BunnyShopCardListComponent,
     BunnyProductTableComponent,
+    FavoriteListComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,14 +1,25 @@
 <div class="container">
-    <div *ngIf="!routeToShop" class="custom-control custom-switch">
-        <input (click)="doNotShowCheck()" type="checkbox" class="custom-control-input" id="customSwitch1">
-        <label class="custom-control-label" for="customSwitch1"><b>{{doNotShow ? 'Tükenenleri Göster' : 'Tükenenleri
-                Gösterme'}}</b></label>
+    <div *ngIf="!routeToShop" class="d-flex" style="margin-left: 30px;">
+        <div class="custom-control custom-switch p-2 mr-auto">
+            <input (click)="doNotShowCheck()" type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1"><b>{{doNotShow ? 'Tükenenleri Göster' : 'Tükenenleri
+                    Gösterme'}}</b></label>
+        </div>
+        <div >
+            <form class="form-inline" style="margin-right: 40px;">
+                <input id="search" class="form-control mr-sm-2" type="search" name="searchedProduct" [(ngModel)]="searchedProduct"
+                    placeholder=" Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="Search()"><i
+                        class="fas fa-search"></i></button>
+            </form>
+        </div>
     </div>
     <bunny-shop-card-list [productList]="(routeToShop ? service.list.slice(0, 6) : service.list)"
         (addToCartClicked)="onAddtoCartClick($event)">
     </bunny-shop-card-list>
 
-    <button type="button" class="btn btn-primary btn-block rounded-pill" *ngIf="routeToShop" id="shopNow" routerLink="/product-shop">
+    <button type="button" class="btn btn-primary btn-block rounded-pill" *ngIf="routeToShop" id="shopNow"
+        routerLink="/product-shop">
         Show All</button>
 </div>
 <button class="top" *ngIf="isShow" (click)="gotoTop()"><i class="fas fa-chevron-up"></i></button>

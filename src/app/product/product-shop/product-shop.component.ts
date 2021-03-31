@@ -15,6 +15,7 @@ export class ProductShopComponent implements OnInit {
   public selectedProduct: any
   public IsContinue: boolean = false;
   public doNotShow: boolean = false;
+  searchedProduct: any;
 
   ProductList: Product[] = [];
 
@@ -29,9 +30,22 @@ export class ProductShopComponent implements OnInit {
     else
       this.service.refreshList();
   }
+
+  Search(){
+    if(this.searchedProduct == "") {
+      this.ngOnInit();
+    }
+    else{
+      this.service.refreshList().then((value) => this.service.list = value.filter(res =>{
+        return res.Title.toLowerCase().match(this.searchedProduct.toLowerCase())
+      }))
+    }
+  }
+
   public createImgPath = (serverPath: string) => {
     return `http://localhost:2805/${serverPath}`;
   }
+
   doNotShowCheck() {
     //tükenenleri göster butonuna basıldıysa servisteki listeyi filtreleyerek tekrar servisteki listeye ata
     if (!this.doNotShow) {

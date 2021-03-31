@@ -2,6 +2,9 @@ a{
     text-decoration: none;
     color: #555;
 }
+button{
+  border-color: navy;
+}
 #shopNow{
         text-decoration: none;
         background-color:#e9ecef;
@@ -40,7 +43,9 @@ a{
     cursor: pointer;
     margin: 5px;
 }
- 
+.form-inline{
+  margin-right: 0px  !important;
+}
 .addCart span {
     cursor: pointer;
     display: inline-block;
