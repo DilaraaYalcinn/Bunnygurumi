@@ -1,6 +1,9 @@
 <div class="container">
     <!--TODO: productTables component yapılacak -->
     <!-- <bunny-product-table [bun-product-list]="productList" (bun-product-delete)="productDelete($event)"></bunny-product-table> -->
+    <form class="form-inline" style="margin-right: 40px;">
+        <input id="searhInput" class="form-control mr-sm-2" type="search" name="searchedProduct" [(ngModel)]="searchedProduct" placeholder= "&#61442; Search..." aria-label="Search" (ngModelChange)= "Search()">
+    </form>
     <bunny-product-table [bun_product_list]="service.sellerList" (bun_product_delete)="productDelete($event)"
         (bun_populate_product_form)="populateProductForm($event)"
         (bun_reset_product_form)="resetProductForm()">

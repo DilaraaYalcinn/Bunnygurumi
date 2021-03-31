@@ -12,3 +12,15 @@
     background-color: #31376C;
     border-color: #31376C;
 }
+form{
+    margin-bottom: 20px;
+}
+#searhInput::-webkit-input-placeholder { 
+    font-family: FontAwesome;
+    font-weight: normal;
+    overflow: visible;
+    vertical-align: top;
+    display: inline-block !important;
+    padding-top: 2px;
+    color: hsl(9, 40%, 60%);
+    }

@@ -11,6 +11,8 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class ProductListComponent implements OnInit {
   isListExist: boolean = true;
+  searchedProduct: any;
+  
   constructor(public service: ProductService, private userService: UserService, private authService: AuthService) { }
 
   public createImgPath = (serverPath: string) => {
@@ -33,6 +35,17 @@ export class ProductListComponent implements OnInit {
     // else {
     //   this.isListExist = false;
     // }
+  }
+
+  Search(){
+    if(this.searchedProduct == "") {
+      this.ngOnInit();
+    }
+    else{
+      this.service.refreshSellerList().then((value) => this.service.sellerList = value.filter(res =>{
+        return res.Title.toLowerCase().match(this.searchedProduct.toLowerCase())
+      }))
+    }
   }
 
   populateProductForm(selectedRecord: Product) {
