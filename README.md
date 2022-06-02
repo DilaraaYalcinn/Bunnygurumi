@@ -1,6 +1,8 @@
 # Bunnygurumi
 
+It is an e-commerce project to meet producers and the buyers for Amigurumi products in a safe environment. 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+Bootstrap templates are used. ASP.Net Core and Code first approach are used.
 
 ## Development server
 
